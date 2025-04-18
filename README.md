@@ -119,14 +119,25 @@ To analyze how early-game performance affects the outcome of the match, the data
 
     Below is a preview of `data_first_baron`, the most complete form of the final dataset used in this project. It includes early- and mid-game features as well as the first Baron objective:
 
+    **Early-game stats**
 
-    | golddiffat10 | csdiffat10 | killsat10 | deathsat10 | firstdragon | golddiffat15 | csdiffat15 | killsat15 | deathsat15 | golddiffat20 | csdiffat20 | killsat20 | deathsat20 | firstbaron | result |
-    |--------------|------------|-----------|------------|-------------|---------------|-------------|------------|-------------|----------------|-------------|------------|-------------|-------------|--------|
-    | 882          | -3         | 5         | 4          | 0           | 1729          | -5          | 6          | 5           | 2416           | 7           | 6          | 5           | 0           | 0      |
-    | -882         | 3          | 4         | 5          | 1           | -1729         | 5           | 5          | 6           | -2416          | -7          | 5          | 6           | 1           | 1      |
-    | -883         | 5          | 0         | 2          | 1           | -331          | 28          | 1          | 3           | -786           | 11          | 3          | 5           | 0           | 0      |
-    | 883          | -5         | 2         | 0          | 0           | 331           | -28         | 3          | 1           | 786            | -11         | 5          | 3           | 1           | 1      |
-    | -392         | 19         | 0         | 1          | 1           | -461          | 14          | 1          | 2           | 179            | 20          | 6          | 5           | 1           | 0      |
+    | golddiffat10 | csdiffat10 | killsat10 | deathsat10 | firstdragon | golddiffat15 | csdiffat15 | killsat15 | deathsat15 |
+    |--------------|------------|-----------|------------|-------------|---------------|-------------|------------|-------------|
+    | 882          | -3         | 5         | 4          | 0           | 1729          | -5          | 6          | 5           |
+    | -882         | 3          | 4         | 5          | 1           | -1729         | 5           | 5          | 6           |
+    | -883         | 5          | 0         | 2          | 1           | -331          | 28          | 1          | 3           |
+    | 883          | -5         | 2         | 0          | 0           | 331           | -28         | 3          | 1           |
+    | -392         | 19         | 0         | 1          | 1           | -461          | 14          | 1          | 2           |
+
+    **Mid- to late-game stats and result**
+
+    | golddiffat20 | csdiffat20 | killsat20 | deathsat20 | firstbaron | result |
+    |--------------|-------------|------------|-------------|-------------|--------|
+    | 2416         | 7           | 6          | 5           | 0           | 0      |
+    | -2416        | -7          | 5          | 6           | 1           | 1      |
+    | -786         | 11          | 3          | 5           | 0           | 0      |
+    | 786          | -11         | 5          | 3           | 1           | 1      |
+    | 179          | 20          | 6          | 5           | 1           | 0      |
 
 
 
@@ -134,6 +145,58 @@ To analyze how early-game performance affects the outcome of the match, the data
 ### Exploratory Data Analysis
 
 #### Univariate Analysis
+
+##### Gold Difference Over Time by Match Result
+
+<iframe  
+src="assets/gold_difference_plot.html"  
+width="900"  
+height="530"  
+frameborder="0"  
+></iframe>  
+
+**This plot illustrates how winning teams tend to hold a small gold advantage at the 10-minute mark, which progressively increases by 15 and 20 minutes. This trend highlights the snowballing effect: teams that gain an early lead often maintain and build upon it as the game progresses.**
+
+---
+
+##### Win Rate by First Blood
+
+<iframe  
+src="assets/first_blood_plot.html"  
+width="550"  
+height="530"  
+frameborder="0"  
+></iframe>  
+**This plot shows that teams securing first blood exhibit a significantly higher win rate. Gaining an early kill can grant tempo and map control, often translating into a gold lead and reinforcing the snowballing effect observed in professional League of Legends games.**
+
+#### Bivariate Analysis
+
+##### KDE: Gold Diff at 10 vs. Kills at 20
+
+<iframe  
+src="assets/kill20_vs_gold10_plot.html"  
+width="820"  
+height="630"  
+frameborder="0"  
+></iframe>  
+
+**This graph highlights how a gold lead at 10 minutes leads to more kills at 20 minutes. As the game progresses, the impact of an early lead becomes even more significant, with the gap in kills widening. This further reinforces the idea that early advantages often snowball into greater success later in the game.**
+
+---
+
+#### Interesting Aggregates
+
+##### Win Rate Based on First Dragon and First Baron
+
+<iframe  
+src="assets/baron_dragon_plot.html"  
+width="600"  
+height="430"  
+frameborder="0"  
+></iframe>  
+
+This heatmap displays win rates based on whether teams secured the first Dragon and/or the first Baron. When **neither objective** was secured, the win rate was just **13%**. Securing **only the first Dragon** increased the win rate to **23%**, while **only the first Baron** resulted in an impressive **80%** win rate. Teams that secured **both objectives** surged to a **90%** win rate. These results strongly emphasize the snowballing nature of League of Legends—particularly how securing pivotal neutral objectives like Baron can decisively shift the momentum in a team's favor.
+
 
 
 
