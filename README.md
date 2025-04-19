@@ -1,4 +1,4 @@
-# League of Legends Snowballing Analysis
+# Can Early Leads Guarantee Wins? A Snowballing Analysis in League of Legends
 
 ## Introduction
 
